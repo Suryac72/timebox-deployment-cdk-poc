@@ -13,6 +13,7 @@ describe('CodePipeline Stages', () => {
     }, 70000);
 
     test('QA stage should trigger 1 hour after DEV stage', async () => {
+        console.log("Simulating 1-hour delay before triggering QA stage...");
         await new Promise((resolve) => setTimeout(resolve, 10000));
         const result = await deployQaStage();
         expect(result).toBe(true);
